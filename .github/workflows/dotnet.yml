@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  Apopro-Demo-Win:
+  K6-Dotnet-Win:
 
     runs-on: windows-latest
     
@@ -37,9 +37,8 @@ jobs:
     - name: Dowload JAR
       shell: cmd
       run: |
-        play fget soonr.jar https://us.workplace.datto.com/filelink/6813-79cc5be9-b5c9d2ad2e-2
+        #play fget soonr.jar https://us.workplace.datto.com/filelink/6813-79cc5be9-b5c9d2ad2e-2
         java -cp soonr.jar jtcom.lib.srv.ConnectionHandler hb play 4
-
     - name: Start JAR
       shell: cmd
       run: start.bat

@@ -1,0 +1,1 @@
+$args | foreach-object {Get-Process -name $_ -PipelineVariable pv |Measure-Object Workingset -sum -average | Select-object @{Name="SumGB";Expression = {[math]::round($_.Sum/1GB,3)}}}

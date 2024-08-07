@@ -8,7 +8,7 @@ let MemCount = new Trend("memory");
 let CPUCount = new Trend("cpu2");
 const BASE_URL = __ENV.BASE_URL || 'ws://localhost';
 
-const url = 'https://localhost:5001/api/v2';
+const url = 'http://localhost:5000/api/v2';
 
 export const options = {
     scenarios: {
@@ -18,8 +18,8 @@ export const options = {
             exec: 'create_client',
             vus: 10,
             maxVUs: 10000,
-            startTime: '30s',
-            duration: '120s',
+            startTime: '5s',
+            duration: '30s',
         },
         
         mem_cpu: {
@@ -27,8 +27,8 @@ export const options = {
             exec: 'mem_cpu',
             vus: 1,
             maxVUs: 1,
-            startTime: '30s',
-            duration: '120s',
+            startTime: '5s',
+            duration: '30s',
         },
     },
 };

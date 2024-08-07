@@ -1,0 +1,1 @@
+﻿$args | foreach-object {(Get-Counter "\Process($_*)\% Processor Time").CounterSamples | Select @{Name="CPU %";Expression={[Decimal]::Round(($_.CookedValue / (Get-WMIObject Win32_ComputerSystem).NumberOfLogicalProcessors), 4)}}}
