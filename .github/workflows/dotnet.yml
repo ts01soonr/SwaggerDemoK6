@@ -42,4 +42,17 @@ jobs:
     - name: Start JAR
       shell: cmd
       run: start.bat
-      
+
+    - name: Upload html
+      if: '!cancelled()'
+      uses: actions/upload-artifact@v3
+      with:
+        name: CPU_Memory
+        path: CPU_Memory.html
+
+    - name: Upload txt
+      if: '!cancelled()'
+      uses: actions/upload-artifact@v3
+      with:
+        name: CPU_Memory
+        path: CPU_Memory.txt
