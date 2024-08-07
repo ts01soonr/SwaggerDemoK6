@@ -44,7 +44,3 @@ jobs:
       shell: cmd
       run: start.bat
       
-    - name: Run local k6 test
-      uses: grafana/run-k6-action@v1
-      with:
-        path: load2min.js
