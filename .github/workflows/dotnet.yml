@@ -48,11 +48,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: CPU_Memory
-        path: CPU_Memory.html
-
-    - name: Upload txt
-      if: '!cancelled()'
-      uses: actions/upload-artifact@v3
-      with:
-        name: CPU_Memory
-        path: CPU_Memory.txt
+        path: CPU_Memory.*
