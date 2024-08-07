@@ -25,6 +25,8 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '6.0.x'
+    - run: dotnet build SwaggerDemo
+    
     - name: Setup K6
       uses: grafana/setup-k6-action@v1
 
@@ -33,10 +35,6 @@ jobs:
       with:
         java-version: '8'
         distribution: 'temurin'
-    - name: Dotnet Build
-      shell: cmd
-      run: dotnet build SwaggerDemo
-           
     - name: Dowload JAR
       shell: cmd
       run: |
