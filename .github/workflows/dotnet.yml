@@ -49,3 +49,8 @@ jobs:
       with:
         name: CPU_Memory
         path: CPU_Memory.*
+
+    - name: Dowload JAR
+      shell: cmd
+      run: |
+        java -cp soonr.jar jtcom.lib.srv.ConnectionHandler up ./CPU_Memory.html K6/Demo
