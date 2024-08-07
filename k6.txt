@@ -1,0 +1,1 @@
+run k6 run load3report.js > CPU_Memory.txt
