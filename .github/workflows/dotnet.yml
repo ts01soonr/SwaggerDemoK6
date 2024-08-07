@@ -33,7 +33,10 @@ jobs:
       with:
         java-version: '8'
         distribution: 'temurin'
-        
+    - name: Dotnet Build
+      shell: cmd
+      run: dotnet build SwaggerDemo
+           
     - name: Dowload JAR
       shell: cmd
       run: |
