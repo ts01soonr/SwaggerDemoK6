@@ -21,7 +21,7 @@ export const options = {
             vus: 10,
             maxVUs: 10000,
             startTime: '5s',
-            duration: '120s',
+            duration: '60s',
         },
         
         mem_cpu: {
@@ -30,7 +30,7 @@ export const options = {
             vus: 1,
             maxVUs: 1,
             startTime: '5s',
-            duration: '120s',
+            duration: '60s',
         },
     },
 };
