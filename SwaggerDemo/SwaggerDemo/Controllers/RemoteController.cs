@@ -4,13 +4,13 @@ using SwaggerDemo.Model;
 
 namespace SwaggerDemo.Controllers
 {
-    [Route("api/v2")]
+    [Route("api/[controller]")]
     [ApiController]
-    public class ClientController : ControllerBase
+    public class RemoteController : ControllerBase
     {
-        private readonly IClientService _service;
+        private readonly IRemoteService _service;
 
-        public ClientController(IClientService service)
+        public RemoteController(IRemoteService service)
         {
             _service = service;
         }
@@ -34,7 +34,7 @@ namespace SwaggerDemo.Controllers
         }
 
         [HttpPost]
-        public ActionResult Post([FromBody] Client emp)
+        public ActionResult Post([FromBody] Remote emp)
         {
             if (!ModelState.IsValid)
             {
@@ -49,9 +49,9 @@ namespace SwaggerDemo.Controllers
         public ActionResult Delete(int id)
         {
             if (_service.Delete(id))
-                return Ok("The client record is deleted.");
+                return Ok("The remote record is deleted.");
             else
-                return NotFound("The client not found.");
+                return NotFound("The record not found.");
         }
     }
 }
