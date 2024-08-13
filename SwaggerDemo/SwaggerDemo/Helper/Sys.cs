@@ -7,7 +7,7 @@ namespace SwaggerDemo.Helper
 {
     public class Sys
     {
-
+        public static bool isDevelopment = false;
         public static string Run(string command)
         {
 

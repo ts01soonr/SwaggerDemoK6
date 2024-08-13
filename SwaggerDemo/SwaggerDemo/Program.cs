@@ -25,6 +25,7 @@ class Program
         {
             app.UseSwagger();
             app.UseSwaggerUI();
+            Sys.isDevelopment = true;
         }
 
         //app.UseHttpsRedirection();
