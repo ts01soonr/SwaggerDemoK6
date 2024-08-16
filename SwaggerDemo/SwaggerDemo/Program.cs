@@ -5,6 +5,7 @@ class Program
     static void Main(string[] args)
     {
         //String msg=Sys.Tel("localhost",8888,"who");
+        //Sys.Get_CPU_Memory("");
         //Console.WriteLine(msg);
         //if (true) return;
         var builder = WebApplication.CreateBuilder(args);

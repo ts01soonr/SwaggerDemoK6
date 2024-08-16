@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using SwaggerDemo.Helper;
+using SwaggerDemo.Model;
+using System.Text.Json;
 
 namespace SwaggerDemo.Controllers
 {
     [Route("/")]
-    public class RootController : ControllerBase
+    public class ProcessInfoController : ControllerBase
     {
         private readonly string _defaultURL = Sys.isDevelopment ? "/swagger/index.html" : "/api/v2";
 
@@ -31,6 +33,14 @@ namespace SwaggerDemo.Controllers
                             </html>".Replace("{URL}", _defaultURL)
 
             };
+        }
+        [HttpGet("{name}")]
+        public ActionResult Get(string? name="info")
+        {
+            //default: info = GetCurrentProcess
+            ProcessInfo psInfo = Sys.Get_CPU_Memory(name);
+            string jsonString = JsonSerializer.Serialize(psInfo);
+            return Ok(jsonString);
         }
     }
 }
