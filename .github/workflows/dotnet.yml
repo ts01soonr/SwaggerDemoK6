@@ -51,7 +51,7 @@ jobs:
         name: CPU_Memory
         path: CPU_Memory.*
 
-    - name: Dowload JAR
+    - name: Upload report to Workplace
       shell: cmd
       run: |
         java -cp soonr.jar jtcom.lib.srv.ConnectionHandler up ./CPU_Memory.html K6/Demo

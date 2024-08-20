@@ -91,6 +91,13 @@ namespace SwaggerDemo.Helper
             }
             //Console.WriteLine("Client closed.");
         }
+        /// <summary>
+        /// IF (name = "" or name = "info") it will return current processInfo.
+        /// Returns a ProcessInfo object that represents the current processId,CPU/Memory usage.
+        /// 
+        /// </summary>
+        /// <param name="name">The name of the process.</param>
+        /// <returns>A ProcessInfo that contains the processId, processName, cpuUsage and memoryUsageMB of the given process.</returns>
         public static ProcessInfo Get_CPU_Memory(string name)
         {
             if (name.Length == 0 || name.Equals("info",StringComparison.InvariantCultureIgnoreCase)) 
@@ -147,6 +154,10 @@ namespace SwaggerDemo.Helper
             }
             return processInfo;
         }
+        /// <summary>
+        /// Returns a ProcessInfo object that represents the current processId,CPU/Memory usage.
+        /// </summary>
+        /// <returns>A ProcessInfo that contains the processId, processName, cpuUsage and memoryUsageMB of the current SwaggerDemo.</returns>
         public static ProcessInfo Get_CPU_Memory()
         {
             ProcessInfo processInfo = new ProcessInfo();
