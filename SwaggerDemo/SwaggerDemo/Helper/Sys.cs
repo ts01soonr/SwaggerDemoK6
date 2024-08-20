@@ -8,6 +8,7 @@ namespace SwaggerDemo.Helper
     public class Sys
     {
         public static bool isDevelopment = false;
+        public static double CPU = 0.0;
         public static string Run(string command)
         {
 
@@ -109,9 +110,12 @@ namespace SwaggerDemo.Helper
                 // Initialize variables to calculate CPU usage
                 TimeSpan previousTotalProcessorTime = process.TotalProcessorTime;
                 DateTime previousTime = DateTime.Now;
+
                 {
                     // Get the current process memory usage
                     float memoryUsageMB = process.WorkingSet64 / (1024 * 1024);
+                    Thread.Sleep(500);
+                    memoryUsageMB += process.WorkingSet64 / (1024 * 1024) / 2;
 
                     // Calculate CPU usage
                     TimeSpan currentTotalProcessorTime = process.TotalProcessorTime;
@@ -127,7 +131,7 @@ namespace SwaggerDemo.Helper
 
                     // Display the CPU and memory usage
                     Console.WriteLine($"Process: {processName}");
-                    Console.WriteLine($"CPU Usage: {cpuUsage:F2}%");
+                    Console.WriteLine($"CPU Usage: {cpuUsage:F2} %");
                     Console.WriteLine($"Memory Usage: {memoryUsageMB:F2} MB");
                     Console.WriteLine("----------------------------");
 
@@ -143,7 +147,6 @@ namespace SwaggerDemo.Helper
             }
             return processInfo;
         }
-
         public static ProcessInfo Get_CPU_Memory()
         {
             ProcessInfo processInfo = new ProcessInfo();
@@ -157,6 +160,9 @@ namespace SwaggerDemo.Helper
                 {
                     // Get the current process memory usage
                     float memoryUsageMB = process.WorkingSet64 / (1024 * 1024);
+                    Thread.Sleep(500);
+                    memoryUsageMB += process.WorkingSet64 / (1024 * 1024) / 2;
+
                     string processName = process.ProcessName;
                     // Calculate CPU usage
                     TimeSpan currentTotalProcessorTime = process.TotalProcessorTime;
@@ -172,7 +178,7 @@ namespace SwaggerDemo.Helper
 
                     // Display the CPU and memory usage
                     Console.WriteLine($"Process Name: {processName}");
-                    Console.WriteLine($"CPU Usage: {cpuUsage:F2}%");
+                    Console.WriteLine($"CPU Usage: {cpuUsage:F2} %");
                     Console.WriteLine($"Memory Usage: {memoryUsageMB:F2} MB");
                     Console.WriteLine("----------------------------");
 
@@ -192,5 +198,5 @@ namespace SwaggerDemo.Helper
 
 
     }
-    
+
 }

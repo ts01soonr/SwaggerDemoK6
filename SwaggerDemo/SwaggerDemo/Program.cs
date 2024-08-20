@@ -7,6 +7,7 @@ class Program
         //String msg=Sys.Tel("localhost",8888,"who");
         //Sys.Get_CPU_Memory("");
         //Console.WriteLine(msg);
+        //CheckCPU.InvokeCPU();
         //if (true) return;
         var builder = WebApplication.CreateBuilder(args);
         // URL https://localhost:5001/swagger/index.html
