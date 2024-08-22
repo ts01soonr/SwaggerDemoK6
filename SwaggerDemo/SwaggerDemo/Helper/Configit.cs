@@ -60,19 +60,21 @@ namespace SwaggerDemo.Helper
         }
         public static PackageInfo VerifyPackage(string packageAB)
         {
-            
-            string packageA = packageAB.Split(':')[0];
-            string packageB = packageAB.Split(':')[1];
-            string[] pA = packageA.Split(',');
-            string[] pB = packageB.Split(',');
-            bool result = _dependenciesChecker.Validate(new List<VersionedPackage> { new VersionedPackage(pA[0], pA[1]), new VersionedPackage(pB[0], pB[1]) });
-            string hints = " - Invalid_Package";
-            if (!_packagelist.Contains(packageA) || !_packagelist.Contains(packageB)) 
-                hints = result + hints;
-            else hints = result.ToString();
+            List<VersionedPackage> packageConf = new List<VersionedPackage>();
+            string packages = "";
+            foreach (string package in packageAB.Split(':'))
+            {   
+                if(!package.Contains(",")) continue;
+                if (packages.Length == 0) packages = package;
+                else packages += ":"+ package;
+                string name = package.Split(',')[0];
+                string version = package.Split(',')[1];
+                packageConf.Add(new VersionedPackage(name, version));
+            }
+            bool result = _dependenciesChecker.Validate(packageConf);
             PackageInfo packageInfo = new PackageInfo();
-            packageInfo.package = packageAB;
-            packageInfo.result = hints;
+            packageInfo.package = packages;
+            packageInfo.result = result.ToString(); ;
             packageInfo.list = _packagelist;
             return packageInfo;
         }
