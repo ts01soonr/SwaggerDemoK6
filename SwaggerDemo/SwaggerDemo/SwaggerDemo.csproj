@@ -10,4 +10,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="CheckDependencies">
+      <HintPath>CheckDependencies.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

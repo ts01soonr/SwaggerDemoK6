@@ -42,5 +42,12 @@ namespace SwaggerDemo.Controllers
             string jsonString = JsonSerializer.Serialize(psInfo);
             return Ok(jsonString);
         }
+        [HttpPost("{package}")]
+        public ActionResult Post(string? package = "A,2:B,3")
+        {
+            //default package = "A,2:B,3"
+            PackageInfo result = Sys.VerifyPackage(package);
+            return Ok(JsonSerializer.Serialize(result));
+        }
     }
 }

@@ -206,6 +206,11 @@ namespace SwaggerDemo.Helper
             }
             return processInfo;
         }
+        public static PackageInfo VerifyPackage(string packageAB)
+        {
+
+            return Configit.VerifyPackage(packageAB);
+        }
 
 
     }
